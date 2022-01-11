@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ApiGeoController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\GeoController;
+use App\Http\Controllers\HolidaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +15,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 Route::prefix('geo')->group(function () {
 
     Route::get('/cities/{postcode}', [
-        ApiGeoController::class,
+        GeoController::class,
         'getCitiesFromPostcode'
+    ]);
+
+});
+
+Route::prefix('holidays')->group(function () {
+
+    Route::get('/', [
+        HolidaysController::class,
+        'getHolidays'
+    ]);
+
+    Route::get('/countries', [
+        HolidaysController::class,
+        'getSupportedCountries'
+    ]);
+
+    Route::get('/languages', [
+        HolidaysController::class,
+        'getSupportedLanguages'
     ]);
 
 });

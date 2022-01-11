@@ -6,7 +6,7 @@ use App\Services\ApiGeo\ApiGeoClient;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class ApiGeoController extends Controller
+class GeoController extends Controller
 {
     /** @var ApiGeoClient */
     protected ApiGeoClient $apiGeoClient;
